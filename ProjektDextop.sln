@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjektDextop", "ProjektDextop\ProjektDextop.csproj", "{F55807F8-2504-4A58-ABE2-31A825A2810E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{58819D4A-B78F-43AC-9AF6-BDCB3E9D0001} = {58819D4A-B78F-43AC-9AF6-BDCB3E9D0001}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectLibrary", "ProjectLibrary\ProjectLibrary.csproj", "{58819D4A-B78F-43AC-9AF6-BDCB3E9D0001}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F55807F8-2504-4A58-ABE2-31A825A2810E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F55807F8-2504-4A58-ABE2-31A825A2810E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F55807F8-2504-4A58-ABE2-31A825A2810E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F55807F8-2504-4A58-ABE2-31A825A2810E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58819D4A-B78F-43AC-9AF6-BDCB3E9D0001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58819D4A-B78F-43AC-9AF6-BDCB3E9D0001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58819D4A-B78F-43AC-9AF6-BDCB3E9D0001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58819D4A-B78F-43AC-9AF6-BDCB3E9D0001}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FC7BFED0-558D-4F52-9489-8E76933D4F24}
+	EndGlobalSection
+EndGlobal
