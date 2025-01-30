@@ -35,6 +35,8 @@
             buttonAddQuestion = new Button();
             textBoxAnswer = new TextBox();
             listBoxHints = new ListBox();
+            labelCounter = new Label();
+            buttonEditQuestion = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -68,7 +70,7 @@
             // 
             // buttonRemoveQuestion
             // 
-            buttonRemoveQuestion.Location = new Point(1475, 359);
+            buttonRemoveQuestion.Location = new Point(1475, 484);
             buttonRemoveQuestion.Name = "buttonRemoveQuestion";
             buttonRemoveQuestion.Size = new Size(75, 75);
             buttonRemoveQuestion.TabIndex = 3;
@@ -78,7 +80,7 @@
             // 
             // buttonAddQuestion
             // 
-            buttonAddQuestion.Location = new Point(1475, 41);
+            buttonAddQuestion.Location = new Point(1475, 173);
             buttonAddQuestion.Name = "buttonAddQuestion";
             buttonAddQuestion.Size = new Size(75, 75);
             buttonAddQuestion.TabIndex = 4;
@@ -103,11 +105,31 @@
             listBoxHints.Size = new Size(525, 94);
             listBoxHints.TabIndex = 6;
             // 
+            // labelCounter
+            // 
+            labelCounter.AutoSize = true;
+            labelCounter.Location = new Point(1485, 41);
+            labelCounter.Name = "labelCounter";
+            labelCounter.Size = new Size(0, 15);
+            labelCounter.TabIndex = 7;
+            // 
+            // buttonEditQuestion
+            // 
+            buttonEditQuestion.Location = new Point(1475, 334);
+            buttonEditQuestion.Name = "buttonEditQuestion";
+            buttonEditQuestion.Size = new Size(75, 75);
+            buttonEditQuestion.TabIndex = 8;
+            buttonEditQuestion.Text = "Edytuj Pytanie";
+            buttonEditQuestion.UseVisualStyleBackColor = true;
+            buttonEditQuestion.Click += buttonEditQuestion_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1638, 918);
+            Controls.Add(buttonEditQuestion);
+            Controls.Add(labelCounter);
             Controls.Add(listBoxHints);
             Controls.Add(textBoxAnswer);
             Controls.Add(buttonAddQuestion);
@@ -131,5 +153,7 @@
         private Button buttonAddQuestion;
         private TextBox textBoxAnswer;
         private ListBox listBoxHints;
+        private Label labelCounter;
+        private Button buttonEditQuestion;
     }
 }

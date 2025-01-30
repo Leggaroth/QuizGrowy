@@ -25,7 +25,7 @@ namespace ProjektDextop
             listBoxHints.DataSource = null;
         }
 
-        
+
 
         private void buttonAddQuestion_Click(object sender, EventArgs e)
         {
@@ -71,18 +71,19 @@ namespace ProjektDextop
             textBoxAnswer.Enabled = true;
             game.RandomiseOrder();
             game.LoadNextQuestion();
+            labelCounter.Text = $"Pytanie: {game.currentQuestionIndex}/{game.QuizCount}";
         }
 
         private void textBoxAnswer_TextChanged(object sender, EventArgs e)
         {
-            Random random = new Random();
             var input = textBoxAnswer.Text.Trim();
             if (!string.IsNullOrEmpty(input))
             {
                 var hints = game.QuizQuestions
                     .Where(q => q.GameTitle.Contains(input, StringComparison.OrdinalIgnoreCase))
+                    .OrderBy(q => q.GameTitle)
                     .Select(q => q.GameTitle)
-                    .OrderBy(q => random.Next())
+                    .Distinct()
                     .ToList();
                 listBoxHints.DataSource = hints;
             }
@@ -97,7 +98,8 @@ namespace ProjektDextop
             try
             {
                 var userAnswer = textBoxAnswer.Text.Trim();
-                var currentQuestion = game.QuizQuestions[game.currentQuestionIndex-1];
+                var currentQuestion = game.QuizQuestions[game.currentQuestionIndex - 1];
+                
 
                 if (string.IsNullOrWhiteSpace(userAnswer))
                 {
@@ -116,6 +118,7 @@ namespace ProjektDextop
                 if (game.currentQuestionIndex < game.QuizCount)
                 {
                     game.LoadNextQuestion();
+                    labelCounter.Text = $"Pytanie: {game.currentQuestionIndex}/{game.QuizCount}";
                 }
                 else
                 {
@@ -128,6 +131,23 @@ namespace ProjektDextop
                 }
             }
             catch (QuizException ex) { MessageBox.Show(ex.Message, "B³¹d", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+        }
+
+        private void buttonEditQuestion_Click(object sender, EventArgs e)
+        {
+            var editGameForm = new EditGameForm(game.QuizQuestions);
+            if (editGameForm.ShowDialog() == DialogResult.OK)
+            {
+                var gameToEdit = game.QuizQuestions.FirstOrDefault(q => q.GameTitle == editGameForm.oldName);
+                if (gameToEdit != null)
+                {
+                    game.QuizQuestions.Remove(gameToEdit);
+                    gameToEdit.GameTitle = editGameForm.newName;
+                    game.AddQuestion(gameToEdit);
+                    game.SaveQuestionsToFile("Pytania.txt");
+                    MessageBox.Show("Gra zosta³a edytowana i zapisane zmiany!", "Sukces", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }
